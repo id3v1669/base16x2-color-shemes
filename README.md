@@ -23,11 +23,11 @@ Pull requests **must** follow those rules:
 |fg|base00|
 |fg-light|base01|
 |fg-dark|base02|
-|fg-alt|base03|
+|fg-dark-alt|base03|
 |bg|base04|
 |bg-light|base05|
 |bg-dark|base06|
-|bg-alt|base07|
+|bg-dark-alt|base07|
 |red|base08|
 |red-light|base09|
 |red-dark|base0A|
