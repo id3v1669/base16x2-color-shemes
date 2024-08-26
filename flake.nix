@@ -23,6 +23,6 @@
   {
     nixosModules.default = import ./nix/module.nix self;
 
-    homeManagerModules.default = self.nixosModule;
+    homeManagerModules.default = self.nixosModules.default;
   };
 }
