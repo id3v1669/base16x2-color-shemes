@@ -1,7 +1,7 @@
 scheme: "gruvbox-dark"
-base00: "ebdbb2" # fg
-base01: "fbf1c7" # fg-light
-base02: "d5c4a1" # fg-dark
+base00: "e7d4a2" # fg
+base01: "ebdbb2" # fg-light
+base02: "e3cd92" # fg-dark
 base03: "bdae93" # fg-dark-alt
 base04: "3c3836" # bg
 base05: "504945" # bg-light
