@@ -34,7 +34,7 @@ self:
   
       colorOptions = color: {
         hex = color;
-        hexWithTag = "#${color}";
+        hexT = "#${color}";
         rgb = hexToRgb (color);
         rgba = arg: hexToRgba (color) arg;
       };
