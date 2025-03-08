@@ -35,8 +35,10 @@ self:
       colorOptions = color: {
         hex = color;
         hexT = "#${color}";
-        rgb = hexToRgb (color);
-        rgba = arg: hexToRgba (color) arg;
+        rgb = "rgb(${hexToRgb (color)})";
+        rgbS = hexToRgb (color);
+        rgba = arg: "rgba(${hexToRgba (color) arg})";
+        rgbaS = arg: hexToRgba (color) arg;
       };
 
       palette = mapAttrs (key: value:
