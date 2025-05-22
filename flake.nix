@@ -1,26 +1,26 @@
 {
   description = "base16x2";
 
-  inputs = { 
+  inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default-linux";
   };
 
-  outputs = inputs @ 
-  { self
-  , nixpkgs
-  , systems
-  , ... 
-  }:
-  let
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    systems,
+    ...
+  }: let
     eachSystem = nixpkgs.lib.genAttrs (import systems);
 
-    pkgsFor = (system: import nixpkgs {
-      inherit system;
-      overlays = [ ];
-    });
-  in 
-  {
+    pkgsFor = system:
+      import nixpkgs {
+        inherit system;
+        overlays = [];
+      };
+  in {
+    formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosModules.default = import ./nix/module.nix self;
 
     homeManagerModules.default = self.nixosModules.default;
