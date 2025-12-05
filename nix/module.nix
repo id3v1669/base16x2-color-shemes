@@ -1,7 +1,6 @@
 self: {lib, ...}: {
   options.palette = let
-    inherit (import ./lib/hex2rgb.nix {inherit lib;}) hexToRgb;
-    inherit (import ./lib/hex2rgba.nix {inherit lib;}) hexToRgba;
+    inherit (import ./lib/hex2rgb.nix {inherit lib;}) hexToRgb hexToRgba hexToRgbRon hexToRgbaRon;
     inherit
       (builtins)
       elemAt
@@ -47,6 +46,8 @@ self: {lib, ...}: {
         rgbS = hexToRgb color;
         rgba = arg: "rgba(${hexToRgba color arg})";
         rgbaS = arg: hexToRgba color arg;
+        rgbRon = hexToRgbRon color;
+        rgbaRon = arg: hexToRgbaRon color arg;
       };
 
       palette =

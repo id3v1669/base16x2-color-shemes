@@ -12,6 +12,37 @@ with lib; rec {
     b = toString (hexToDec (__substring 4 2 c));
   in "${r}, ${g}, ${b}";
 
+  hexToRgba = c: opacity: let
+    r = toString (hexToDec (__substring 0 2 c));
+    g = toString (hexToDec (__substring 2 2 c));
+    b = toString (hexToDec (__substring 4 2 c));
+  in "${r}, ${g}, ${b}, ${opacity}";
+
+  hexToRgbRon = c: let
+    r = toString ((hexToDec (__substring 0 2 c)) / 255);
+    g = toString ((hexToDec (__substring 2 2 c)) / 255);
+    b = toString ((hexToDec (__substring 4 2 c)) / 255);
+  in ''
+    (
+        red: ${r},
+        green: ${g},
+        blue: ${b},
+    )
+  '';
+
+  hexToRgbaRon = c: opacity: let
+    r = toString ((hexToDec (__substring 0 2 c)) / 255);
+    g = toString ((hexToDec (__substring 2 2 c)) / 255);
+    b = toString ((hexToDec (__substring 4 2 c)) / 255);
+  in ''
+    (
+        red: ${r},
+        green: ${g},
+        blue: ${b},
+        alpha: ${opacity},
+    )
+  '';
+
   # functions copied from https://gist.github.com/corpix/f761c82c9d6fdbc1b3846b37e1020e11
   # convert a hex value to an integer
   hexToDec = v: let
